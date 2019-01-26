@@ -1,0 +1,68 @@
+<!--
+  Generated template for the AddNotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create File</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+        <ion-label fixed>Avatar</ion-label>
+        <ion-avatar item-end>
+          <img src="{{imgPreview}}" (click)="getPhoto()">
+        </ion-avatar>
+  </ion-item>
+  <ion-item>
+    <ion-label>Vehicle Registration</ion-label>
+    <ion-input [(ngModel)]="note.vehicle_registration" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Product ID</ion-label>
+    <ion-input [(ngModel)]="note.product_id" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Serial ID</ion-label>
+    <ion-input [(ngModel)]="note.serial_id" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-input [(ngModel)]="note.date" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tag ID</ion-label>
+    <ion-input [(ngModel)]="note.tag_id" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Weight</ion-label>
+    <ion-input [(ngModel)]="note.weight" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Gross Weight</ion-label>
+    <ion-input [(ngModel)]="note.gross_weight" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Net Weight</ion-label>
+    <ion-input [(ngModel)]="note.net_weight" placeholder="555 555 5555"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>General Info</ion-label>
+    <ion-textarea [(ngModel)]="note.general_info" placeholder="Java Technology - Spring Framework"></ion-textarea>
+  </ion-item>
+
+  <button ion-button block clear (click)="addNote(note)">Add</button>
+</ion-content>
