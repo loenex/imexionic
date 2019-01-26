@@ -1,59 +1,68 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{note?.title}}</ion-title>
+    <ion-title>Edit File</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="exportPdf()">
+        <ion-icon slot="icon-only" name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<!--  <img [src]="user.image"/> -->
-  <ion-item>
-    <ion-label>Vehicle Registration</ion-label>
-    <ion-input [(ngModel)]="note.vehicle_registration" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+  <div class="printable-content">
+   <div class="printable-area" id="printable-area">
+      <img [src]="note.image"/> 
+        <ion-item>
+          <ion-label>Vehicle Registration</ion-label>
+          <ion-input [(ngModel)]="note.vehicle_registration" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Product ID</ion-label>
-    <ion-input [(ngModel)]="note.product_id" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Product ID</ion-label>
+          <ion-input [(ngModel)]="note.product_id" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Serial ID</ion-label>
-    <ion-input [(ngModel)]="note.serial_id" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Serial ID</ion-label>
+          <ion-input [(ngModel)]="note.serial_id" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Date</ion-label>
-    <ion-input [(ngModel)]="note.date" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-input [(ngModel)]="note.date" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Tag ID</ion-label>
-    <ion-input [(ngModel)]="note.tag_id" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Tag ID</ion-label>
+          <ion-input [(ngModel)]="note.tag_id" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Weight</ion-label>
-    <ion-input [(ngModel)]="note.weight" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Weight</ion-label>
+          <ion-input [(ngModel)]="note.weight" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Gross Weight</ion-label>
-    <ion-input [(ngModel)]="note.gross_weight" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Gross Weight</ion-label>
+          <ion-input [(ngModel)]="note.gross_weight" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>Net Weight</ion-label>
-    <ion-input [(ngModel)]="note.net_weight" placeholder="555 555 5555"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-label>Net Weight</ion-label>
+          <ion-input [(ngModel)]="note.net_weight" placeholder="555 555 5555"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label>General Info</ion-label>
-    <ion-textarea [(ngModel)]="note.general_info" placeholder="Java Technology - Spring Framework"></ion-textarea>
-  </ion-item>
+        <ion-item>
+          <ion-label>General Info</ion-label>
+          <ion-textarea [(ngModel)]="note.general_info" placeholder="Java Technology - Spring Framework"></ion-textarea>
+        </ion-item>
 
-  <button ion-button block clear (click)="updateNote(note)">Save</button>
-  <button ion-button block clear (click)="removeNote(note)">Delete</button>
+        <button ion-button block clear (click)="updateNote(note)">Save</button>
+        <button ion-button block clear (click)="removeNote(note)">Delete</button>
+      </div>
+    </div>
 </ion-content>

@@ -12,6 +12,7 @@ import { NoteListService } from '../services/note-list.service';
 //import 'rxjs/add/operator/map';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAmanoLkXSzLlWA_bhWFjwcu5_OcfvsAOM",
@@ -40,6 +41,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    FileOpener,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NoteListService,
     ImagePicker,
     Base64
