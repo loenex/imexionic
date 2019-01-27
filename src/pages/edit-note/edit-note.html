@@ -2,11 +2,17 @@
 
   <ion-navbar>
     <ion-title>Edit File</ion-title>
-    <ion-buttons slot="primary">
-      <ion-button color="primary" (click)="exportPdf()">
-        <ion-icon slot="icon-only" name="print"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+  <!--  //<ion-buttons slot="primary">
+      //<ion-button color="primary" (click)="exportPdf()">
+      //  <ion-icon slot="icon-only" name="print"></ion-icon>
+    //  </ion-button>
+    //</ion-buttons> -->
+      <ion-buttons end>
+        <button navPush="exportPdf" ion-button>
+          <ion-icon name="print"></ion-icon>
+        </button>
+      </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +21,7 @@
 <ion-content padding>
   <div class="printable-content">
    <div class="printable-area" id="printable-area">
-      <img [src]="note.image"/> 
+      <img src="{{imgPreview}}" (click)="getPhoto()">
         <ion-item>
           <ion-label>Vehicle Registration</ion-label>
           <ion-input [(ngModel)]="note.vehicle_registration" placeholder="555 555 5555"></ion-input>

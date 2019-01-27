@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Note } from '../../model/note/note.model';
 import { NoteListService } from '../../services/note-list.service';
-import { LoadingController } from '@ionic/angular';
 import * as jsPDF from 'jspdf';
 import domtoimage from 'dom-to-image';
 import { File, IWriteOptions } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Base64 } from '@ionic-native/base64';
 @IonicPage()
 @Component({
   selector: 'page-edit-note',
@@ -27,12 +28,15 @@ export class EditNotePage {
     general_info: ''
   };
   loading: any;
+  imgPreview = 'assets/imgs/blank-avatar.jpg';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private noteListService: NoteListService,
     public loadingCtrl: LoadingController,
     private file: File,
+    private imagePicker: ImagePicker,
+    private base64: Base64,
     private fileOpener: FileOpener) {
   }
 
@@ -52,15 +56,15 @@ export class EditNotePage {
     })
   }
 
-  async presentLoading(msg) {
-  const loading = await this.loadingController.create({
-    message: msg
-  });
-  return await loading.present();
-}
+//  async presentLoading(msg) {
+//  const loading = await this.loadingCtrl.create({
+    //message: msg
+//  });
+//  return await loading.present();
+//}
 
 exportPdf() {
-  this.presentLoading('Creating PDF file...');
+  //this.presentLoading('Creating PDF file...');
   const div = document.getElementById("printable-area");
   const options = { background: "white", height: div.clientWidth, width: div.clientHeight };
   domtoimage.toPng(div, options).then((dataUrl)=> {
@@ -121,4 +125,19 @@ exportPdf() {
   });
 }
 
+getPhoto() {
+let options = {
+  maximumImagesCount: 1
+};
+this.imagePicker.getPictures(options).then((results) => {
+  for (var i = 0; i < results.length; i++) {
+      this.imgPreview = results[i];
+      this.base64.encodeFile(results[i]).then((base64File: string) => {
+        this.note.image = base64File;
+      }, (err) => {
+        console.log(err);
+      });
+  }
+}, (err) => { });
+}
 }

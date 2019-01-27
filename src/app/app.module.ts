@@ -13,6 +13,11 @@ import { NoteListService } from '../services/note-list.service';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Http, HttpModule} from '@angular/http';
+import { File, IWriteOptions } from '@ionic-native/file/ngx';
+//import { File } from '@ionic-native/file';
+//import { EditPage } from '../pages/edit-note';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAmanoLkXSzLlWA_bhWFjwcu5_OcfvsAOM",
@@ -31,7 +36,10 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule,
+    HttpModule
+  //  File,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +50,8 @@ export const firebaseConfig = {
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     FileOpener,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    File,
+  //  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NoteListService,
     ImagePicker,
     Base64

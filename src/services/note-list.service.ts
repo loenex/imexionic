@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Note } from '../model/note/note.model';
-
+//import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class NoteListService {
 
